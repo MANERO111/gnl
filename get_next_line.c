@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aakioud <aakioud@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/13 17:01:17 by aakioud           #+#    #+#             */
+/*   Updated: 2026/11/13 17:09:42 by aakioud          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 char	*bfree(char *s1, char *s2)
@@ -35,6 +47,7 @@ char	*update_str(char *str)
 	free(str);
 	return (new_str);
 }
+
 char	*gettline(char *str)
 {
 	char	*line ;

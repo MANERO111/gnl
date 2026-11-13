@@ -1,4 +1,16 @@
-#include "get_next_line.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aakioud <aakioud@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/13 17:01:05 by aakioud           #+#    #+#             */
+/*   Updated: 2026/11/13 17:02:43 by aakioud          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line_bonus.h"
 
 static char	*bfree(char *s1, char *s2)
 {
@@ -92,10 +104,11 @@ static char	*read_and_fill(int fd, char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*str[1048576];
-	char		*line ;
+	static char	*str[OPEN_MAX];
+	char		*line;
 
-	if (fd < 0 || fd > 1048576 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483646)
+	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0
+		|| BUFFER_SIZE > 2147483646)
 		return (NULL);
 	str[fd] = read_and_fill(fd, str[fd]);
 	if (!str[fd])
@@ -104,23 +117,3 @@ char	*get_next_line(int fd)
 	str[fd] = update_str(str[fd]);
 	return (line);
 }
-
-//#include <fcntl.h>
-//#include <stdio.h>
-
-//int main()
-//{
-//	int fd1 = open("hello.txt", O_RDONLY);
-//	int fd2 = open("hey.txt", O_RDONLY);
-//	int fd3 = open("wow.txt", O_RDONLY);
-
-//	char *s1 = get_next_line(fd1);
-//	char *s2 = get_next_line(fd2);
-//	char *s3 = get_next_line(fd3);
-//	printf("%s",s1);
-//	printf("%s",s2);
-//	printf("%s",s3);
-//	free(s1);
-//	free(s2);
-//	free(s3);
-//}
