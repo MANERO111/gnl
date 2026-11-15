@@ -6,20 +6,20 @@
 /*   By: aakioud <aakioud@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 17:01:17 by aakioud           #+#    #+#             */
-/*   Updated: 2026/11/15 14:38:41 by aakioud          ###   ########.fr       */
+/*   Updated: 2026/11/15 14:46:42 by aakioud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*bfree(char *s1, char *s2)
+static char	*bfree(char *s1, char *s2)
 {
 	free(s1);
 	free(s2);
 	return (NULL);
 }
 
-char	*update_str(char *str)
+static char	*update_str(char *str)
 {
 	char	*new_str;
 	int		i;
@@ -28,7 +28,7 @@ char	*update_str(char *str)
 	i = 0;
 	while (str[i] && str[i] != '\n')
 		i++;
-	if (!str[i] || !str[i + 1])
+	if (!str[i])
 	{
 		free(str);
 		return (NULL);
@@ -48,9 +48,9 @@ char	*update_str(char *str)
 	return (new_str);
 }
 
-char	*gettline(char *str)
+static char	*gettline(char *str)
 {
-	char	*line ;
+	char	*line;
 	int		i;
 	int		j;
 
@@ -74,7 +74,7 @@ char	*gettline(char *str)
 	return (line);
 }
 
-char	*read_and_fill(int fd, char *str)
+static char	*read_and_fill(int fd, char *str)
 {
 	char	*buffer;
 	char	*new;
@@ -105,7 +105,7 @@ char	*read_and_fill(int fd, char *str)
 char	*get_next_line(int fd)
 {
 	static char	*str;
-	char		*line ;
+	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);

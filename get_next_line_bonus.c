@@ -6,7 +6,7 @@
 /*   By: aakioud <aakioud@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 17:01:05 by aakioud           #+#    #+#             */
-/*   Updated: 2026/11/15 14:38:56 by aakioud          ###   ########.fr       */
+/*   Updated: 2026/11/15 14:45:38 by aakioud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	*update_str(char *str)
 
 static char	*gettline(char *str)
 {
-	char	*line ;
+	char	*line;
 	int		i;
 	int		j;
 
