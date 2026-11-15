@@ -6,7 +6,7 @@
 /*   By: aakioud <aakioud@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 17:01:05 by aakioud           #+#    #+#             */
-/*   Updated: 2026/11/13 17:02:43 by aakioud          ###   ########.fr       */
+/*   Updated: 2026/11/15 14:38:56 by aakioud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static char	*read_and_fill(int fd, char *str)
 	char	*new;
 	ssize_t	byte_reads;
 
-	buffer = malloc(sizeof(char) * (((size_t)BUFFER_SIZE) + 1 ));
+	buffer = malloc(sizeof(char) * (((size_t)BUFFER_SIZE) + 1));
 	if (!buffer)
 	{
 		free(str);
