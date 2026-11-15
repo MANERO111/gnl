@@ -17,7 +17,7 @@
 # include <limits.h>
 
 # ifndef OPEN_MAX
-#  define OPEN_MAX 10240
+#  define OPEN_MAX 1024
 # endif
 
 # ifndef BUFFER_SIZE

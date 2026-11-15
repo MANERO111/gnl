@@ -80,7 +80,7 @@ static char	*read_and_fill(int fd, char *str)
 	char	*new;
 	ssize_t	byte_reads;
 
-	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buffer = malloc(sizeof(char) * (((size_t)BUFFER_SIZE) + 1 ));
 	if (!buffer)
 	{
 		free(str);
@@ -107,8 +107,7 @@ char	*get_next_line(int fd)
 	static char	*str[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0
-		|| BUFFER_SIZE > 2147483646)
+	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
 		return (NULL);
 	str[fd] = read_and_fill(fd, str[fd]);
 	if (!str[fd])
